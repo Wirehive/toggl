@@ -10,6 +10,7 @@
  * @version 0.1
  * @package toggl
  *
+ * Standard API methods
  * @method CreateClient
  * @method GetClient
  * @method UpdateClient
@@ -52,6 +53,11 @@
  * @method GetWorkspaceTasks
  * @method UpdateWorkspaceUser
  * @method DeleteWorkspaceUser
+ *
+ * Report API method
+ * @method Weekly
+ * @method Details
+ * @method Summary
  */
 class TogglAPI
 {
