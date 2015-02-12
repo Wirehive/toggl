@@ -1,0 +1,261 @@
+{
+  "Weekly": {
+    "method": "GET",
+    "uri": "weekly",
+    "parameters": {
+      "user_agent": {
+        "location": "query",
+        "type": "string",
+        "required": true
+      },
+      "workspace_id": {
+        "location": "query",
+        "type": "integer",
+        "required": true
+      },
+      "since": {
+        "location": "query",
+        "type": "string"
+      },
+      "until": {
+        "location": "query",
+        "type": "string"
+      },
+      "billable": {
+        "location": "query",
+        "type": "string",
+        "default": "both"
+      },
+      "client_ids": {
+        "location": "query",
+        "type": "string"
+      },
+      "project_ids": {
+        "location": "query",
+        "type": "string"
+      },
+      "user_ids": {
+        "location": "query",
+        "type": "string"
+      },
+      "tag_ids": {
+        "location": "query",
+        "type": "string"
+      },
+      "task_ids": {
+        "location": "query",
+        "type": "string"
+      },
+      "time_entry_ids": {
+        "location": "query",
+        "type": "string"
+      },
+      "description": {
+        "location": "query",
+        "type": "string"
+      },
+      "order_field": {
+        "location": "query",
+        "type": "string"
+      },
+      "order_desc": {
+        "location": "query",
+        "type": "string"
+      },
+      "distinct_rates": {
+        "location": "query",
+        "type": "string"
+      },
+      "rounding": {
+        "location": "query",
+        "type": "string"
+      },
+      "display_hours": {
+        "location": "query",
+        "type": "string",
+        "default": "minutes"
+      },
+      "grouping": {
+        "location": "query",
+        "type": "string",
+        "default": "projects"
+      },
+      "calculate": {
+        "location": "query",
+        "type": "string",
+        "default": "time"
+      }
+    }
+  },
+  "Details": {
+    "method": "GET",
+    "uri": "details",
+    "parameters": {
+      "user_agent": {
+        "location": "query",
+        "type": "string",
+        "required": true
+      },
+      "workspace_id": {
+        "location": "query",
+        "type": "integer",
+        "required": true
+      },
+      "since": {
+        "location": "query",
+        "type": "string"
+      },
+      "until": {
+        "location": "query",
+        "type": "string"
+      },
+      "billable": {
+        "location": "query",
+        "type": "string",
+        "default": "both"
+      },
+      "client_ids": {
+        "location": "query",
+        "type": "string"
+      },
+      "project_ids": {
+        "location": "query",
+        "type": "string"
+      },
+      "user_ids": {
+        "location": "query",
+        "type": "string"
+      },
+      "tag_ids": {
+        "location": "query",
+        "type": "string"
+      },
+      "task_ids": {
+        "location": "query",
+        "type": "string"
+      },
+      "time_entry_ids": {
+        "location": "query",
+        "type": "string"
+      },
+      "description": {
+        "location": "query",
+        "type": "string"
+      },
+      "order_field": {
+        "location": "query",
+        "type": "string"
+      },
+      "order_desc": {
+        "location": "query",
+        "type": "string"
+      },
+      "distinct_rates": {
+        "location": "query",
+        "type": "string"
+      },
+      "rounding": {
+        "location": "query",
+        "type": "string"
+      },
+      "display_hours": {
+        "location": "query",
+        "type": "string",
+        "default": "minutes"
+      },
+      "page": {
+        "location": "query",
+        "type": "integer",
+        "default": 1
+      }
+    }
+  },
+  "Summary": {
+    "method": "GET",
+    "uri": "summary",
+    "parameters": {
+      "user_agent": {
+        "location": "query",
+        "type": "string",
+        "required": true
+      },
+      "workspace_id": {
+        "location": "query",
+        "type": "integer",
+        "required": true
+      },
+      "since": {
+        "location": "query",
+        "type": "string"
+      },
+      "until": {
+        "location": "query",
+        "type": "string"
+      },
+      "billable": {
+        "location": "query",
+        "type": "string",
+        "default": "both"
+      },
+      "client_ids": {
+        "location": "query",
+        "type": "string"
+      },
+      "project_ids": {
+        "location": "query",
+        "type": "string"
+      },
+      "user_ids": {
+        "location": "query",
+        "type": "string"
+      },
+      "tag_ids": {
+        "location": "query",
+        "type": "string"
+      },
+      "task_ids": {
+        "location": "query",
+        "type": "string"
+      },
+      "time_entry_ids": {
+        "location": "query",
+        "type": "string"
+      },
+      "description": {
+        "location": "query",
+        "type": "string"
+      },
+      "order_field": {
+        "location": "query",
+        "type": "string"
+      },
+      "order_desc": {
+        "location": "query",
+        "type": "string"
+      },
+      "distinct_rates": {
+        "location": "query",
+        "type": "string"
+      },
+      "rounding": {
+        "location": "query",
+        "type": "string"
+      },
+      "display_hours": {
+        "location": "query",
+        "type": "string",
+        "default": "minutes"
+      },
+      "grouping": {
+        "location": "query",
+        "type": "string",
+        "default": "projects"
+      },
+      "subgrouping": {
+        "location": "query",
+        "type": "string",
+        "default": "time_entries"
+      }
+    }
+  }
+}

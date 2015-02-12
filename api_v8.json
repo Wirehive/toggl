@@ -1,0 +1,924 @@
+{
+  "CreateClient": {
+    "method": "POST",
+    "uri": "clients",
+    "parameters": {
+      "client": {
+        "location": "json",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "required": true
+          },
+          "wid": {
+            "type": "integer",
+            "required": true
+          },
+          "notes": {
+            "type": "string",
+            "required": false
+          },
+          "hrate": {
+            "type": "numeric",
+            "required": false
+          },
+          "cur": {
+            "type": "string",
+            "required": false
+          }
+        }
+      }
+    }
+  },
+  "GetClient": {
+    "method": "GET",
+    "uri": "clients/{id}",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "type": "integer",
+        "required": true
+      }
+    }
+  },
+  "UpdateClient": {
+    "method": "PUT",
+    "uri": "clients/{id}",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "type": "integer",
+        "required": true
+      },
+      "client": {
+        "location": "json",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "required": true
+          },
+          "wid": {
+            "type": "integer",
+            "required": true
+          },
+          "notes": {
+            "type": "string",
+            "required": false
+          },
+          "hrate": {
+            "type": "numeric",
+            "required": false
+          },
+          "cur": {
+            "type": "string",
+            "required": false
+          }
+        }
+      }
+    }
+  },
+  "DeleteClient": {
+    "method": "DELETE",
+    "uri": "clients/{id}",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "type": "integer",
+        "required": true
+      }
+    }
+  },
+  "GetClients": {
+    "method": "GET",
+    "uri": "clients"
+  },
+  "GetClientProjects": {
+    "method": "GET",
+    "uri": "clients/{id}/projects",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "required": true,
+        "type": "integer"
+      },
+      "active": {
+        "location": "query",
+        "type": "string",
+        "default": "true"
+      }
+    }
+  },
+  "CreateProject": {
+    "method": "POST",
+    "uri": "projects",
+    "parameters": {
+      "project": {
+        "location": "json",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "required": true
+          },
+          "wid": {
+            "type": "integer",
+            "required": true
+          },
+          "cid": {
+            "type": "integer",
+            "required": false
+          },
+          "active": {
+            "type": "boolean",
+            "required": false,
+            "default": true
+          },
+          "is_private": {
+            "type": "boolean",
+            "required": false,
+            "default": true
+          },
+          "template": {
+            "type": "boolean",
+            "required": false,
+            "default": false
+          },
+          "template_id": {
+            "type": "integer",
+            "required": false
+          },
+          "billable": {
+            "type": "boolean",
+            "required": false,
+            "default": true
+          }
+        }
+      }
+    }
+  },
+  "GetProjects": {
+    "method": "GET",
+    "uri": "workspaces/{id}/projects",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "required": true,
+        "type": "integer"
+      },
+      "active": {
+        "location": "query",
+        "type": "string",
+        "default": "true"
+      }
+    }
+  },
+  "GetProject": {
+    "method": "GET",
+    "uri": "projects/{id}",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "type": "integer",
+        "required": true
+      }
+    }
+  },
+  "UpdateProject": {
+    "method": "PUT",
+    "uri": "projects/{id}",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "type": "integer",
+        "required": true
+      },
+      "project": {
+        "location": "json",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "required": true
+          },
+          "wid": {
+            "type": "integer",
+            "required": true
+          },
+          "cid": {
+            "type": "integer",
+            "required": false
+          },
+          "active": {
+            "type": "boolean",
+            "required": false,
+            "default": true
+          },
+          "is_private": {
+            "type": "boolean",
+            "required": false,
+            "default": true
+          },
+          "template": {
+            "type": "boolean",
+            "required": false,
+            "default": false
+          },
+          "template_id": {
+            "type": "integer",
+            "required": false
+          },
+          "billable": {
+            "type": "boolean",
+            "required": false,
+            "default": true
+          }
+        }
+      }
+    }
+  },
+  "DeleteProject": {
+    "method": "DELETE",
+    "uri": "projects/{id}",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "type": "integer",
+        "required": true
+      }
+    }
+  },
+  "GetProjectUsers": {
+    "method": "GET",
+    "uri": "projects/{id}/project_users",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "required": true,
+        "type": "integer"
+      }
+    }
+  },
+  "CreateProjectUser": {
+    "method": "POST",
+    "uri": "project_users",
+    "parameters": {
+      "project_user": {
+        "location": "json",
+        "type": "object",
+        "properties": {
+          "pid": {
+            "type": "integer",
+            "required": true
+          },
+          "uid": {
+            "type": "integer",
+            "required": true
+          },
+          "wid": {
+            "type": "integer",
+            "required": false
+          },
+          "manager": {
+            "type": "boolean",
+            "required": false,
+            "default": false
+          },
+          "rate": {
+            "type": "numeric",
+            "required": false
+          },
+          "fullname": {
+            "type": "string",
+            "required": false
+          }
+        }
+      }
+    }
+  },
+  "UpdateProjectUser": {
+    "method": "PUT",
+    "uri": "project_users/{id}",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "type": "integer",
+        "required": true
+      },
+      "project_user": {
+        "location": "json",
+        "type": "object",
+        "properties": {
+          "pid": {
+            "type": "integer",
+            "required": true
+          },
+          "uid": {
+            "type": "integer",
+            "required": true
+          },
+          "wid": {
+            "type": "integer",
+            "required": false
+          },
+          "manager": {
+            "type": "boolean",
+            "required": false,
+            "default": false
+          },
+          "rate": {
+            "type": "numeric",
+            "required": false
+          },
+          "fullname": {
+            "type": "string",
+            "required": false
+          }
+        }
+      }
+    }
+  },
+  "DeleteProjectUser": {
+    "method": "DELETE",
+    "uri": "project_users/{id}",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "type": "integer",
+        "required": true
+      }
+    }
+  },
+  "CreateProjectUsers": {
+    "method": "POST",
+    "uri": "project_users",
+    "parameters": {
+      "project_user": {
+        "location": "json",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "pid": {
+              "type": "integer",
+              "required": true
+            },
+            "uid": {
+              "type": "integer",
+              "required": true
+            },
+            "wid": {
+              "type": "integer",
+              "required": false
+            },
+            "manager": {
+              "type": "boolean",
+              "required": false,
+              "default": false
+            },
+            "rate": {
+              "type": "numeric",
+              "required": false
+            },
+            "fullname": {
+              "type": "string",
+              "required": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "UpdateProjectUsers": {
+    "method": "PUT",
+    "uri": "project_users/{ids}",
+    "parameters": {
+      "ids": {
+        "location": "uri",
+        "type": "string",
+        "required": true
+      },
+      "project_user": {
+        "location": "json",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "pid": {
+              "type": "integer",
+              "required": true
+            },
+            "uid": {
+              "type": "integer",
+              "required": true
+            },
+            "wid": {
+              "type": "integer",
+              "required": false
+            },
+            "manager": {
+              "type": "boolean",
+              "required": false,
+              "default": false
+            },
+            "rate": {
+              "type": "numeric",
+              "required": false
+            },
+            "fullname": {
+              "type": "string",
+              "required": false
+            }
+          }
+        }
+      }
+    }
+  },
+  "DeleteProjectUsers": {
+    "method": "DELETE",
+    "uri": "project_users/{ids}",
+    "parameters": {
+      "ids": {
+        "location": "uri",
+        "type": "string",
+        "required": true
+      }
+    }
+  },
+  "CreateTag": {
+    "method": "POST",
+    "uri": "tags",
+    "parameters": {
+      "tag": {
+        "location": "json",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "required": true
+          },
+          "wid": {
+            "type": "integer",
+            "required": true
+          }
+        }
+      }
+    }
+  },
+  "UpdateTag": {
+    "method": "PUT",
+    "uri": "tags/{id}",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "type": "integer",
+        "required": true
+      },
+      "tag": {
+        "location": "json",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "required": true
+          },
+          "wid": {
+            "type": "integer",
+            "required": true
+          }
+        }
+      }
+    }
+  },
+  "DeleteTag": {
+    "method": "DELETE",
+    "uri": "tags/{id}",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "type": "integer",
+        "required": true
+      }
+    }
+  },
+  "CreateTask": {
+    "method": "POST",
+    "uri": "tasks",
+    "parameters": {
+      "task": {
+        "location": "json",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "required": true
+          },
+          "pid": {
+            "type": "integer",
+            "required": true
+          },
+          "wid": {
+            "type": "integer",
+            "required": false
+          },
+          "uid": {
+            "type": "integer",
+            "required": false
+          },
+          "estimated_seconds": {
+            "type": "integer",
+            "required": false
+          },
+          "active": {
+            "type": "boolean",
+            "required": false,
+            "default": true
+          }
+        }
+      }
+    }
+  },
+  "GetTask": {
+    "method": "GET",
+    "uri": "tasks/{id}",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "type": "integer",
+        "required": true
+      }
+    }
+  },
+  "UpdateTask": {
+    "method": "PUT",
+    "uri": "tasks/{id}",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "type": "integer",
+        "required": true
+      },
+      "task": {
+        "location": "json",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "required": true
+          },
+          "pid": {
+            "type": "integer",
+            "required": true
+          },
+          "wid": {
+            "type": "integer",
+            "required": false
+          },
+          "uid": {
+            "type": "integer",
+            "required": false
+          },
+          "estimated_seconds": {
+            "type": "integer",
+            "required": false
+          },
+          "active": {
+            "type": "boolean",
+            "required": false,
+            "default": true
+          }
+        }
+      }
+    }
+  },
+  "DeleteTask": {
+    "method": "DELETE",
+    "uri": "tasks/{id}",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "type": "integer",
+        "required": true
+      }
+    }
+  },
+  "UpdateTasks": {
+    "method": "PUT",
+    "uri": "tasks/{ids}",
+    "parameters": {
+      "ids": {
+        "location": "uri",
+        "type": "string",
+        "required": true
+      },
+      "task": {
+        "location": "json",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "required": true
+            },
+            "pid": {
+              "type": "integer",
+              "required": true
+            },
+            "wid": {
+              "type": "integer",
+              "required": false
+            },
+            "uid": {
+              "type": "integer",
+              "required": false
+            },
+            "estimated_seconds": {
+              "type": "integer",
+              "required": false
+            },
+            "active": {
+              "type": "boolean",
+              "required": false,
+              "default": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "DeleteTasks": {
+    "method": "DELETE",
+    "uri": "tasks/{ids}",
+    "parameters": {
+      "ids": {
+        "location": "uri",
+        "type": "string",
+        "required": true
+      }
+    }
+  },
+  "StartTimeEntry": {
+    "method": "POST",
+    "uri": "time_entries/start",
+    "parameters": {
+      "time_entry": {
+        "location": "json",
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "required": true
+          },
+          "wid": {
+            "type": "integer",
+            "required": false
+          },
+          "pid": {
+            "type": "integer",
+            "required": true
+          },
+          "tid": {
+            "type": "integer",
+            "required": false
+          },
+          "billable": {
+            "type": "boolean",
+            "required": false,
+            "default": false
+          },
+          "created_with": {
+            "type": "string",
+            "required": true
+          },
+          "tags": {
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          "duronly": {
+            "type": "boolean",
+            "required": false
+          }
+        }
+      }
+    }
+  },
+  "StopTimeEntry": {
+    "method": "PUT",
+    "uri": "time_entries/{id}/stop",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "type": "integer",
+        "required": true
+      }
+    }
+  },
+  "GetTimeEntry": {
+    "method": "GET",
+    "uri": "time_entries/{id}",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "type": "integer",
+        "required": true
+      }
+    }
+  },
+  "UpdateTimeEntry": {
+    "method": "PUT",
+    "uri": "time_entries/{id}",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "type": "integer",
+        "required": true
+      },
+      "time_entry": {
+        "location": "json",
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "required": true
+          },
+          "wid": {
+            "type": "integer",
+            "required": false
+          },
+          "pid": {
+            "type": "integer",
+            "required": false
+          },
+          "tid": {
+            "type": "integer",
+            "required": false
+          },
+          "billable": {
+            "type": "boolean",
+            "required": false,
+            "default": false
+          },
+          "created_with": {
+            "type": "string",
+            "required": true
+          },
+          "tags": {
+            "type": "array",
+            "required": false,
+            "items": {
+              "type": "string"
+            }
+          },
+          "duronly": {
+            "type": "boolean",
+            "required": false
+          }
+        }
+      }
+    }
+  },
+  "DeleteTimeEntry": {
+    "method": "DELETE",
+    "uri": "time_entries/{id}",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "type": "integer",
+        "required": true
+      }
+    }
+  },
+  "GetTimeEntries": {
+    "method": "GET",
+    "uri": "time_entries",
+    "parameters": {
+      "start_date": {
+        "location": "query",
+        "type": "string"
+      },
+      "end_date": {
+        "location": "query",
+        "type": "string"
+      }
+    }
+  },
+  "GetCurrentUser": {
+    "method": "GET",
+    "uri": "me"
+  },
+  "CreateUser": {
+    "method": "POST",
+    "uri": "signups",
+    "parameters": {
+      "user": {
+        "location": "json",
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "required": true
+          },
+          "password": {
+            "type": "string",
+            "required": true
+          }
+        }
+      }
+    }
+  },
+  "GetWorkspaces": {
+    "method": "GET",
+    "uri": "workspaces"
+  },
+  "GetWorkspaceUsers": {
+    "method": "GET",
+    "uri": "workspaces/{id}/users",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "required": true,
+        "type": "integer"
+      }
+    }
+  },
+  "GetWorkspaceClients": {
+    "method": "GET",
+    "uri": "workspaces/{id}/clients",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "required": true,
+        "type": "integer"
+      }
+    }
+  },
+  "GetWorkspaceProjects": {
+    "method": "GET",
+    "uri": "workspaces/{id}/projects",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "required": true,
+        "type": "integer"
+      },
+      "active": {
+        "location": "query",
+        "type": "string",
+        "default": "true"
+      }
+    }
+  },
+  "GetWorkspaceTasks": {
+    "method": "GET",
+    "uri": "workspaces/{id}/tasks",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "required": true,
+        "type": "integer"
+      },
+      "active": {
+        "location": "query",
+        "type": "string",
+        "default": "true"
+      }
+    }
+  },
+  "UpdateWorkspaceUser": {
+    "method": "PUT",
+    "uri": "workspace_users/{id}",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "type": "integer",
+        "required": true
+      },
+      "workspace_user": {
+        "location": "json",
+        "type": "object",
+        "properties": {
+          "admin": {
+            "type": "boolean",
+            "required": true
+          }
+        }
+      }
+    }
+  },
+  "DeleteWorkspaceUser": {
+    "method": "DELETE",
+    "uri": "workspace_users/{id}",
+    "parameters": {
+      "id": {
+        "location": "uri",
+        "type": "integer",
+        "required": true
+      }
+    }
+  }
+}
