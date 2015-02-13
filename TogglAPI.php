@@ -6,6 +6,8 @@
  *
  * Interface to the Toggl API and Toggle Reports API
  *
+ * @link https://github.com/toggl/toggl_api_docs Toggl API docs
+ *
  * @author  Robin Corps <robin@wirehive.net>
  * @version 0.1
  * @package toggl
