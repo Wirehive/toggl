@@ -920,5 +920,16 @@
         "required": true
       }
     }
+  },
+  "GetDashboard": {
+    "method": "GET",
+    "uri": "dashboard/{workspace_id}",
+    "parameters": {
+      "workspace_id": {
+        "location": "uri",
+        "type": "integer",
+        "required": true
+      }
+    }
   }
 }
