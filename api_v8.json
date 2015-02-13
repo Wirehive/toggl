@@ -5,7 +5,7 @@
     "parameters": {
       "client": {
         "location": "json",
-        "type": "object",
+        "type": "array",
         "properties": {
           "name": {
             "type": "string",
@@ -53,7 +53,7 @@
       },
       "client": {
         "location": "json",
-        "type": "object",
+        "type": "array",
         "properties": {
           "name": {
             "type": "string",
@@ -106,7 +106,8 @@
       "active": {
         "location": "query",
         "type": "string",
-        "default": "true"
+        "default": "true",
+        "required": false
       }
     }
   },
@@ -116,7 +117,7 @@
     "parameters": {
       "project": {
         "location": "json",
-        "type": "object",
+        "type": "array",
         "properties": {
           "name": {
             "type": "string",
@@ -170,7 +171,8 @@
       "active": {
         "location": "query",
         "type": "string",
-        "default": "true"
+        "default": "true",
+        "required": false
       }
     }
   },
@@ -196,7 +198,7 @@
       },
       "project": {
         "location": "json",
-        "type": "object",
+        "type": "array",
         "properties": {
           "name": {
             "type": "string",
@@ -266,7 +268,7 @@
     "parameters": {
       "project_user": {
         "location": "json",
-        "type": "object",
+        "type": "array",
         "properties": {
           "pid": {
             "type": "integer",
@@ -308,7 +310,7 @@
       },
       "project_user": {
         "location": "json",
-        "type": "object",
+        "type": "array",
         "properties": {
           "pid": {
             "type": "integer",
@@ -358,7 +360,7 @@
         "location": "json",
         "type": "array",
         "items": {
-          "type": "object",
+          "type": "array",
           "properties": {
             "pid": {
               "type": "integer",
@@ -403,7 +405,7 @@
         "location": "json",
         "type": "array",
         "items": {
-          "type": "object",
+          "type": "array",
           "properties": {
             "pid": {
               "type": "integer",
@@ -452,7 +454,7 @@
     "parameters": {
       "tag": {
         "location": "json",
-        "type": "object",
+        "type": "array",
         "properties": {
           "name": {
             "type": "string",
@@ -477,7 +479,7 @@
       },
       "tag": {
         "location": "json",
-        "type": "object",
+        "type": "array",
         "properties": {
           "name": {
             "type": "string",
@@ -508,7 +510,7 @@
     "parameters": {
       "task": {
         "location": "json",
-        "type": "object",
+        "type": "array",
         "properties": {
           "name": {
             "type": "string",
@@ -561,7 +563,7 @@
       },
       "task": {
         "location": "json",
-        "type": "object",
+        "type": "array",
         "properties": {
           "name": {
             "type": "string",
@@ -616,7 +618,7 @@
         "location": "json",
         "type": "array",
         "items": {
-          "type": "object",
+          "type": "array",
           "properties": {
             "name": {
               "type": "string",
@@ -665,7 +667,7 @@
     "parameters": {
       "time_entry": {
         "location": "json",
-        "type": "object",
+        "type": "array",
         "properties": {
           "description": {
             "type": "string",
@@ -740,7 +742,7 @@
       },
       "time_entry": {
         "location": "json",
-        "type": "object",
+        "type": "array",
         "properties": {
           "description": {
             "type": "string",
@@ -799,11 +801,13 @@
     "parameters": {
       "start_date": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "end_date": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       }
     }
   },
@@ -817,7 +821,7 @@
     "parameters": {
       "user": {
         "location": "json",
-        "type": "object",
+        "type": "array",
         "properties": {
           "email": {
             "type": "string",
@@ -869,7 +873,8 @@
       "active": {
         "location": "query",
         "type": "string",
-        "default": "true"
+        "default": "true",
+        "required": false
       }
     }
   },
@@ -885,7 +890,8 @@
       "active": {
         "location": "query",
         "type": "string",
-        "default": "true"
+        "default": "true",
+        "required": false
       }
     }
   },
@@ -900,7 +906,7 @@
       },
       "workspace_user": {
         "location": "json",
-        "type": "object",
+        "type": "array",
         "properties": {
           "admin": {
             "type": "boolean",

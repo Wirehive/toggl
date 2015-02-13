@@ -15,75 +15,92 @@
       },
       "since": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "until": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "billable": {
         "location": "query",
         "type": "string",
-        "default": "both"
+        "default": "both",
+        "required": false
       },
       "client_ids": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "project_ids": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "user_ids": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "tag_ids": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "task_ids": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "time_entry_ids": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "description": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "order_field": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "order_desc": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "distinct_rates": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "rounding": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "display_hours": {
         "location": "query",
         "type": "string",
-        "default": "minutes"
+        "default": "minutes",
+        "required": false
       },
       "grouping": {
         "location": "query",
         "type": "string",
-        "default": "projects"
+        "default": "projects",
+        "required": false
       },
       "calculate": {
         "location": "query",
         "type": "string",
-        "default": "time"
+        "default": "time",
+        "required": false
       }
     }
   },
@@ -103,70 +120,86 @@
       },
       "since": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "until": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "billable": {
         "location": "query",
         "type": "string",
-        "default": "both"
+        "default": "both",
+        "required": false
       },
       "client_ids": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "project_ids": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "user_ids": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "tag_ids": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "task_ids": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "time_entry_ids": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "description": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "order_field": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "order_desc": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "distinct_rates": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "rounding": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "display_hours": {
         "location": "query",
         "type": "string",
-        "default": "minutes"
+        "default": "minutes",
+        "required": false
       },
       "page": {
         "location": "query",
         "type": "integer",
-        "default": 1
+        "default": 1,
+        "required": false
       }
     }
   },
@@ -186,75 +219,92 @@
       },
       "since": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "until": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "billable": {
         "location": "query",
         "type": "string",
-        "default": "both"
+        "default": "both",
+        "required": false
       },
       "client_ids": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "project_ids": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "user_ids": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "tag_ids": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "task_ids": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "time_entry_ids": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "description": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "order_field": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "order_desc": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "distinct_rates": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "rounding": {
         "location": "query",
-        "type": "string"
+        "type": "string",
+        "required": false
       },
       "display_hours": {
         "location": "query",
         "type": "string",
-        "default": "minutes"
+        "default": "minutes",
+        "required": false
       },
       "grouping": {
         "location": "query",
         "type": "string",
-        "default": "projects"
+        "default": "projects",
+        "required": false
       },
       "subgrouping": {
         "location": "query",
         "type": "string",
-        "default": "time_entries"
+        "default": "time_entries",
+        "required": false
       }
     }
   }
