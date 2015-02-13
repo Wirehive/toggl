@@ -241,6 +241,25 @@ class TogglAPI
 
     $result = json_decode($response, $this->returnArray);
 
+    if ($status == 404)
+    {
+      if ($result)
+      {
+        $response = $result;
+      }
+      else
+      {
+        $response = array($response);
+      }
+
+      throw new TogglException('Method call failed with error(s): ' . implode(', ', $response), TogglException::FAILED_REQUEST);
+    }
+
+    if ($status == 403)
+    {
+      throw new TogglException('Failed to authenticate with Toggl. Check your API key is valid: ' . $this->getApiKey(), TogglException::FAILED_AUTHENTICATION);
+    }
+
     if ($result === null)
     {
       if ($status == 500)
@@ -248,17 +267,7 @@ class TogglAPI
         throw new TogglException('Toggl threw a 500 error...', TogglException::REQUEST_ERROR);
       }
 
-      throw new TogglException('Error decoding result as JSON (' . $status . '): ' . $response, TogglException::JSON_ERROR);
-    }
-
-    if ($status == 404)
-    {
-      throw new TogglException('Method call failed with error(s): ' . implode(', ', $response), TogglException::FAILED_REQUEST);
-    }
-
-    if ($status == 403)
-    {
-      throw new TogglException('Failed to authenticate with Toggl', TogglException::FAILED_AUTHENTICATION);
+      throw new TogglException('Error decoding result as JSON (response code: ' . $status . '): ' . $response, TogglException::JSON_ERROR);
     }
 
     return $result;
