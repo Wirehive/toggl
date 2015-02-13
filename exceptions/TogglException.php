@@ -18,6 +18,7 @@ class TogglException extends Exception
   const MISSING_PARAMETER = 210;
   const INVALID_PARAMETER = 220;
   const UNEXPECTED_PARAMETER = 230;
+  const MISSING_USER_AGENT = 240;
 
   // service response errors
   const FAILED_AUTHENTICATION = 300;

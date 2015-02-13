@@ -86,6 +86,11 @@ class TogglAPI
   protected $baseReportsUrl = 'https://www.toggl.com/reports/api/';
 
   /**
+   * @var string
+   */
+  protected $userAgent;
+
+  /**
    * @var bool
    */
   protected $returnArray = true;
@@ -129,7 +134,7 @@ class TogglAPI
    *
    * @throws TogglException
    */
-  public function __construct($apiKey, $mode = null)
+  public function __construct($apiKey, $mode = null, $userAgent = null)
   {
     if ($apiKey === null)
     {
@@ -138,6 +143,11 @@ class TogglAPI
 
     $this->setApiKey($apiKey);
 
+    if ($userAgent !== null)
+    {
+      $this->setUserAgent($userAgent);
+    }
+
     // default to API mode
     if ($mode === null)
     {
@@ -145,8 +155,6 @@ class TogglAPI
     }
 
     $this->setMode($mode);
-
-    $this->loadServices();
   }
 
 
@@ -298,6 +306,17 @@ class TogglAPI
 
     $service = $this->apiMethods[$method];
 
+    // enforce user agent but don't require it to be passed in every time
+    if ($this->getMode() == self::REPORTS && !array_key_exists('user_agent', $params))
+    {
+      if (!$this->hasUserAgent())
+      {
+        throw new TogglException('You must supply a user agent for Report API calls', TogglException::MISSING_USER_AGENT);
+      }
+
+      $params['user_agent'] = $this->getUserAgent();
+    }
+
     // if the service method has parameters then process them
     // and check we have any required ones
     if (array_key_exists('parameters', $service))
@@ -375,6 +394,8 @@ class TogglAPI
   {
     $uri = $service['uri'];
 
+    $queryVars = array();
+
     if (array_key_exists('parameters', $service))
     {
       foreach ($service['parameters'] as $parameter => $details)
@@ -385,7 +406,22 @@ class TogglAPI
 
           unset($params[$parameter]);
         }
+
+        if ($details['location'] == 'query')
+        {
+          if (array_key_exists($parameter, $params))
+          {
+            $queryVars[] = $parameter . '=' . urlencode($params[$parameter]);
+
+            unset($params[$parameter]);
+          }
+        }
       }
+    }
+
+    if (count($queryVars))
+    {
+      $uri .= '?' . implode('&', $queryVars);
     }
 
     return $uri;
@@ -469,6 +505,9 @@ class TogglAPI
     }
 
     $this->mode = $mode;
+
+    // reload service on mode change
+    $this->loadServices();
   }
 
 
@@ -507,7 +546,7 @@ class TogglAPI
       CURLOPT_CONNECTTIMEOUT => 10,
       CURLOPT_RETURNTRANSFER => true,
       CURLOPT_TIMEOUT        => 60,
-      CURLOPT_USERAGENT      => 'php-toggl-api'
+      CURLOPT_USERAGENT      => 'php-toggl-lib'
     ));
   }
 
@@ -589,5 +628,40 @@ class TogglAPI
   public function getUrl()
   {
     return $this->getCurlOpt(CURLOPT_URL);
+  }
+
+
+  /**
+   * Set the user agent
+   *
+   * @param $userAgent
+   */
+  public function setUserAgent($userAgent)
+  {
+    $this->userAgent = $userAgent;
+  }
+
+
+  /**
+   * Get the user agent
+   *
+   * @param $userAgent
+   *
+   * @return string
+   */
+  public function getUserAgent()
+  {
+    return $this->userAgent;
+  }
+
+
+  /**
+   * Get if the user agent has been set
+   *
+   * @return bool
+   */
+  public function hasUserAgent()
+  {
+    return $this->userAgent ? true : false;
   }
 }
