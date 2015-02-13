@@ -55,6 +55,7 @@
  * @method GetWorkspaceTasks
  * @method UpdateWorkspaceUser
  * @method DeleteWorkspaceUser
+ * @method GetDashboard
  *
  * Report API method
  * @method Weekly
@@ -163,9 +164,9 @@ class TogglAPI
    */
   public function __call($method, $params)
   {
-    if ($params === null)
+    if (count($params))
     {
-      $params = array();
+      $params = array_shift($params);
     }
 
     $service = $this->validateMethod($method, $params);
