@@ -176,6 +176,9 @@ class TogglAPI
 
     $this->setCurlOpt(CURLOPT_URL, $this->getEndpoint() . $uri);
 
+    // authenticate using API token
+    $this->setCurlOpt(CURLOPT_USERPWD, $this->getApiKey() . ':api_token');
+
     if (count($params))
     {
       $this->setCurlOpt(CURLOPT_POSTFIELDS, json_encode($params, JSON_NUMERIC_CHECK));
