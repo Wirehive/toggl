@@ -324,7 +324,7 @@ class TogglAPI
       foreach ($service['parameters'] as $parameter => $details)
       {
         // check if parameter is required
-        if ($details['required'] && !array_key_exists($parameter, $params))
+        if (array_key_exists('required', $details) && $details['required'] && !array_key_exists($parameter, $params))
         {
           throw new MissingParameterTogglException($method, $parameter);
         }
