@@ -200,7 +200,6 @@ class TogglAPI
         break;
 
       case self::PUT:
-        $this->setCurlOpt(CURLOPT_PUT, true);
         $this->setCurlOpt(CURLOPT_CUSTOMREQUEST, 'PUT');
         break;
 
@@ -329,26 +328,62 @@ class TogglAPI
           throw new MissingParameterTogglException($method, $parameter);
         }
 
-        // we only want to process the parameter if it was passed in
-        if (array_key_exists($parameter, $params))
+        if ($details['type'] == 'array')
         {
-          // check the set parameter was of the expected type
-          if (gettype($params[$parameter]) != $details['type'])
+          foreach ($details['properties'] as $child_parameter => $child_details)
           {
-            throw new InvalidParameterTogglException(
-              $method,
-              $parameter,
-              gettype($params[$parameter]),
-              $details['type']
-            );
+            if (array_key_exists('required', $child_details) && $child_details['required'] && !array_key_exists($child_parameter, $params[$parameter]))
+            {
+              throw new MissingParameterTogglException($method, $parameter . ' -> ' . $child_parameter);
+            }
+
+            // we only want to process the parameter if it was passed in
+            if (array_key_exists($child_parameter, $params[$parameter]))
+            {
+              // check the set parameter was of the expected type
+              if (gettype($params[$parameter][$child_parameter]) != $child_details['type'])
+              {
+                throw new InvalidParameterTogglException(
+                  $method,
+                  $parameter . ' -> ' . $child_parameter,
+                  gettype($params[$parameter][$child_parameter]),
+                  $child_details['type']
+                );
+              }
+            }
+            else
+            {
+              // if the parameter wasn't passed in but there is a default then set the default
+              if (array_key_exists('default', $child_details))
+              {
+                $params[$parameter][$child_parameter] = $child_details['default'];
+              }
+            }
           }
         }
         else
         {
-          // if the parameter wasn't passed in but there is a default then set the default
-          if (array_key_exists('default', $details))
+          // we only want to process the parameter if it was passed in
+          if (array_key_exists($parameter, $params))
           {
-            $params[$parameter] = $details['default'];
+            // check the set parameter was of the expected type
+            if (gettype($params[$parameter]) != $details['type'])
+            {
+              throw new InvalidParameterTogglException(
+                $method,
+                $parameter,
+                gettype($params[$parameter]),
+                $details['type']
+              );
+            }
+          }
+          else
+          {
+            // if the parameter wasn't passed in but there is a default then set the default
+            if (array_key_exists('default', $details))
+            {
+              $params[$parameter] = $details['default'];
+            }
           }
         }
       }
