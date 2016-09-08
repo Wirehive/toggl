@@ -61,7 +61,7 @@
           },
           "wid": {
             "type": "integer",
-            "required": true
+            "required": false
           },
           "notes": {
             "type": "string",
