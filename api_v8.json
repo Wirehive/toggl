@@ -154,6 +154,23 @@
             "type": "boolean",
             "required": false,
             "default": true
+          },
+          "color": {
+            "type": "string",
+            "required": false
+          },
+          "auto_estimates": {
+            "type": "boolean",
+            "required": false,
+            "default": false
+          },
+          "estimated_hours": {
+            "type": "integer",
+            "required": false
+          },
+          "rate": {
+            "type": "float",
+            "required": false
           }
         }
       }
@@ -235,6 +252,23 @@
             "type": "boolean",
             "required": false,
             "default": true
+          },
+          "color": {
+            "type": "string",
+            "required": false
+          },
+          "auto_estimates": {
+            "type": "boolean",
+            "required": false,
+            "default": false
+          },
+          "estimated_hours": {
+            "type": "integer",
+            "required": false
+          },
+          "rate": {
+            "type": "float",
+            "required": false
           }
         }
       }
