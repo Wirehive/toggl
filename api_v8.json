@@ -713,7 +713,7 @@
           },
           "pid": {
             "type": "integer",
-            "required": true
+            "required": false
           },
           "tid": {
             "type": "integer",
@@ -828,6 +828,10 @@
         "required": true
       }
     }
+  },
+  "GetRunningTimeEntry": {
+    "method": "GET",
+    "uri": "time_entries/current"
   },
   "GetTimeEntries": {
     "method": "GET",
