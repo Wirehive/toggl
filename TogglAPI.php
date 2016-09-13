@@ -45,6 +45,7 @@
  * @method GetTimeEntry
  * @method UpdateTimeEntry
  * @method DeleteTimeEntry
+ * @method GetRunningTimeEntry
  * @method GetTimeEntries
  * @method GetCurrentUser
  * @method CreateUser
@@ -74,6 +75,8 @@ class TogglAPI
   const POST   = 'POST';
   const PUT    = 'PUT';
   const DELETE = 'DELETE';
+
+  const USER_AGENT = 'php-toggl-lib';
 
   /**
    * @var string
@@ -159,6 +162,28 @@ class TogglAPI
 
 
   /**
+   * Get a User's API token by authenticating them against the API
+   *
+   * @param $password
+   *
+   * @return string
+   */
+  public function getUserAPIToken($email, $password)
+  {
+    $this->initCurl();
+
+    $this->setCurlOpt(CURLOPT_URL, $this->getEndpoint() . 'me');
+
+    // authenticate using email and password
+    $this->setCurlOpt(CURLOPT_USERPWD, $email . ':' . $password);
+
+    $user = $this->doRequest();
+
+    return $user['data']['api_token'];
+  }
+
+
+  /**
    * Magic method to call underlying service methods
    *
    * @param string $method
@@ -208,6 +233,19 @@ class TogglAPI
         break;
     }
 
+    return $this->doRequest();
+  }
+
+
+  /**
+   * Execute the currently setup cURL request and return the result
+   *
+   * @return mixed
+   *
+   * @throws TogglException
+   */
+  private function doRequest()
+  {
     $response = curl_exec($this->curl);
 
     $status = curl_getinfo($this->curl, CURLINFO_HTTP_CODE);
@@ -581,7 +619,7 @@ class TogglAPI
       CURLOPT_CONNECTTIMEOUT => 10,
       CURLOPT_RETURNTRANSFER => true,
       CURLOPT_TIMEOUT        => 60,
-      CURLOPT_USERAGENT      => 'php-toggl-lib'
+      CURLOPT_USERAGENT      => self::USER_AGENT
     ));
   }
 
