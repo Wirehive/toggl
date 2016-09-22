@@ -8,7 +8,7 @@
  *
  * @link https://github.com/toggl/toggl_api_docs Toggl API docs
  *
- * @author  Robin Corps <robin@wirehive.net>
+ * @author  Robin Corps <robin.corps@wirehive.com>
  * @version 0.1
  * @package toggl
  *
