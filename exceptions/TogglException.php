@@ -35,4 +35,54 @@ class TogglException extends Exception
   {
     parent::__construct($message, $code);
   }
+
+
+  /**
+   * Get the text name for a given error code.
+   *
+   * @param int $code
+   *
+   * @return string
+   */
+  public static function getErrorName($code)
+  {
+    switch ($code)
+    {
+      case self::INVALID_MODE:
+        return 'INVALID_MODE';
+
+      case self::SERVICE_DESCRIPTOR_NOT_FOUND:
+        return 'SERVICE_DESCRIPTOR_NOT_FOUND';
+
+      case self::INVALID_METHOD:
+        return 'INVALID_METHOD';
+
+      case self::MISSING_PARAMETER:
+        return 'MISSING_PARAMETER';
+
+      case self::INVALID_PARAMETER:
+        return 'INVALID_PARAMETER';
+
+      case self::UNEXPECTED_PARAMETER:
+        return 'UNEXPECTED_PARAMETER';
+
+      case self::MISSING_USER_AGENT:
+        return 'MISSING_USER_AGENT';
+
+      case self::FAILED_AUTHENTICATION:
+        return 'FAILED_AUTHENTICATION';
+
+      case self::FAILED_REQUEST:
+        return 'FAILED_REQUEST';
+
+      case self::REQUEST_ERROR:
+        return 'REQUEST_ERROR';
+
+      case self::JSON_ERROR:
+        return 'JSON_ERROR';
+
+      default:
+        return 'UNKNOWN';
+    }
+  }
 }
