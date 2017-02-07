@@ -313,7 +313,10 @@ class TogglAPI
         throw new TogglException('Toggl threw a 500 error...', TogglException::REQUEST_ERROR);
       }
 
-      throw new TogglException('Error decoding result as JSON (response code: ' . $status . '): ' . $response, TogglException::JSON_ERROR);
+      if ($response !== 'null')
+      {
+        throw new TogglException('Error decoding result as JSON (response code: ' . $status . '): ' . $response, TogglException::JSON_ERROR);
+      }
     }
 
     return $result;
